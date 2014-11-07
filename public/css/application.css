@@ -1,3 +1,5 @@
+
+
 .container {
   margin: 20px auto;
   width: 800px;
@@ -7,7 +9,15 @@
 
 .container h1 {
   font-size: 17pt;
+}
 
+
+#gorilla {
+  display: block;
+  margin-right:auto;
+  margin-left: auto;
+  height: 50%;
+  width: 30%;
 }
 
 nav {

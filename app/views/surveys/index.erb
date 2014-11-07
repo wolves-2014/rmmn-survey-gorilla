@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>All surveys</h1>
+  <% @surveys.each do |survey| %>
+    <%=survey.title%>
+    <%if current_user == survey.author%>
+      <a href="/surveys/<%= survey.id%>/edit">edit</a>
+      <a href="/surveys/<%= survey.id%>">delete</a>
+    <% end %>
+
+  <% end %>
+
+  <%# TODO: display the destinations and trips for each user ... %>
+</div>

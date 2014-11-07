@@ -1,8 +1,5 @@
 get '/' do
-  # render home page
-  @users = User.all
-
-  erb :index
+  redirect '/sessions/new'
 end
 
 #----------- SESSIONS -----------
@@ -10,7 +7,7 @@ end
 get '/sessions/new' do
   # render sign-in page
   @email = nil
-  erb :sign_in
+  erb :"sessions/new"
 end
 
 post '/sessions' do
@@ -41,7 +38,7 @@ end
 get '/users/new' do
   # render sign-up page
   @user = User.new
-  erb :sign_up
+  erb :"users/new"
 end
 
 post '/users' do
@@ -56,3 +53,7 @@ post '/users' do
     erb :sign_up
   end
 end
+
+
+
+
