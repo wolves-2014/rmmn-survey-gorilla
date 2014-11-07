@@ -1,25 +1,48 @@
-rmmn-survey-gorilla
-===================
+## Objectives
 
-Team Skateboard!
+For this challenge, you'll be adding some new functionality to a very basic Sinatra+ActiveRecord application. The application in its current form includes:
 
-Ryan, Michael, Michael, & Nick's Survey Gorilla Project
+- a `User` model (along with sign-in and sign-up functionality)
+- a `Destination` model (representing a destination that a user might travel to)
 
-Our MVP:
+Your task is to add the notion of "trips" to the application. A user can have many destinations, and a destination can belong to many users. A "trip" is an association between `User` and `Destination`, and has the following additional *required* attributes:
 
-Our landing page will be a login page that also has the ability to sign up for a new account.
+- duration of the trip (in days)
+- a flag tracking whether or not the user has completed the trip or if it is planned for the future
 
-Upon logging in the user will first see the surveys that he/she has created (with options to edit or delete) followed by the list of available surveys to take.
+You'll need to provide an interface in the application for users to select the destinations that they would like to visit. How you choose to provide this interface is up to you, but a user should only be able to edit her own trips, not the trips of other users.
 
-A user can create a new survey which will allow one yes or no question. After creation they are redirected to their homepage.
+Also, the home page of your application should show, for **all users**:
+* their destinations
+* how long she has spent at the given destination
+* whether or not this trip has happened or is still being planned.
 
-A user can take any survey (via link on the homepage) which will redirect to the survey's page.
+For example:
 
-Once finished, the user will be redirected to the home page.
+<table>
+  <tr>
+    <th>Name</th><th>Destination</th><th>Duration of Trip</th><th>Completed?</th>
+  </tr>
+  <tr class="new-user">
+    <td>Marie Curie</td><td>Rio de Janeiro (urban)</td><td>6 days</td><td>yes</td>
+  </tr>
+  <tr>
+    <td></td><td>Berlin (urban)</td><td>10 days</td><td>no</td>
+  </tr>
+  <tr class="new-user">
+    <td>Max Born</td><td>Great Barrier Reef (rural)</td><td>5 days</td><td>no</td>
+  </tr>
+  <tr>
+    <td></td><td>Hong Kong (urban)</td><td>3 days</td><td>no</td>
+  </tr>
+</table>
 
-User can logout which returns to the login page.
+## Important
+**Please run `rake db:drop` before you begin to flush any old databases**  
+**Do not add additional functionality. Get the requirements completed, then move on to the next challenge.**
 
+## Useful Notes / Tidbits
 
-[Our Team Trello Board](https://trello.com/b/6p4dyzca/survey-gorilla)
-
-[Our Schema](imgs/surveygorilla.png)
+- What's the [right kind of association](http://guides.rubyonrails.org/association_basics.html#the-has_many-through-association) between `User` and `Destination`?
+- Validations on boolean fields [can be tricky](http://stackoverflow.com/questions/10506575/rails-database-defaults-and-model-validation-for-boolean-fields).
+- Before implementing a manual way to add new trips for a user, you might try adding some through your `seeds.rb` file.
