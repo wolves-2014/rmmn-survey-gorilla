@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New Survey!</h1>
+  <% if @error %>
+  <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form class="survey" method="post" action="/surveys">
+    <label class="label" for="title">Title</label>
+    <input type="text" name="title" placeholder="My Survey Title" value="<%= @survey.title if @survey %>"><br>
+    <div class="submit"><input type="submit" value="Continue"></div>
+  </form>
+
+  </div>
+</div>

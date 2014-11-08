@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New Question!</h1>
+  <% if @error %>
+  <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form class="question" method="post" action="/surveys/<%= @survey.id %>/questions">
+    <label class="label" for="question_body">Question Body</label>
+    <input type="text" name="question_body" placeholder="I can haz cheeseburger?" value="<%= @question.question_body if @question %>"><br>
+    <div class="submit"><input type="submit" value="Create Survey"></div>
+  </form>
+
+  </div>
+</div>

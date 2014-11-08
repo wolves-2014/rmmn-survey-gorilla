@@ -10,7 +10,9 @@ $(document).ready(function () {
   $('a#delete-survey').on("click", function (e) {
     e.preventDefault();
     var request = $.ajax({ url: $(this).attr('href'), type: 'delete' });
-    request.done(function () { window.location = "/"; });
+    request.done(function(response) {
+      $('#' + response).remove();
+     });
   });
 
 });

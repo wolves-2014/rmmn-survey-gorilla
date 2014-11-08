@@ -1,12 +1,25 @@
 <div class="container">
-  <h1>All surveys</h1>
-  <% @surveys.each do |survey| %>
-    <%=survey.title%>
-    <%if current_user == survey.author%>
-      <a href="/surveys/<%= survey.id%>/edit">edit</a>
-      <a href="/surveys/<%= survey.id%>">delete</a>
+  <h1>Your surveys</h1>
+  <% if @surveys == nil %>
+    <p> There are no surveys currently. You should make one! </p>
+  <% else %>
+    <% @surveys.each do |survey| %>
+    <article id="<%= survey.id %>">
+      <%if current_user == survey.author%>
+        <a href="/surveys/<%=survey.id%>"><%=survey.title%></a>
+        <a href="/surveys/<%= survey.id%>/edit">edit</a>
+        <a href="/surveys/<%= survey.id%>" id="delete-survey">delete</a>
+      <% end %>
+    </article>
     <% end %>
-
+    <h1>Other surveys</h1>
+    <% @surveys.each do |survey| %>
+    <article id="<%= survey.id %>">
+      <%if current_user != survey.author%>
+        <a href="/surveys/<%=survey.id%>"><%=survey.title%></a>
+      <% end %>
+    </article>
+    <% end %>
   <% end %>
 
   <%# TODO: display the destinations and trips for each user ... %>
