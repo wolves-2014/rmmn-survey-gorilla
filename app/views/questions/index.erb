@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Your questions</h1>
+    <% @questions.each do |question| %>
+      <a href="/surveys/<%=@survey.id%>/questions/<%=question.id%>/edit"><%=question.question_body%></a>
+    <% end %>
+</div>

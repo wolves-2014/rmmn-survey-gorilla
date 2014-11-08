@@ -1,0 +1,11 @@
+<div class="container">
+  <% @survey.questions.each do |question|%>
+    <p><%= question.question_body %></p>
+    <p>
+      <form  method="post" action="/surveys/<%=@survey.id%>/questions/<%=question.id%>/responses">
+        <input type="text" name="user_response" placeholder="I KNOW THE ANSWER!">
+    </p>
+  <%end%>
+  <input type="submit" value="Submit my answers">
+  </form>
+</div>
