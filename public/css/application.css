@@ -76,6 +76,11 @@ form.quirks {
   text-align: center;
 }
 
+#results td {
+  padding: 15px;
+  border: dotted gray 1px;
+}
+
 .label {
   font-weight: bold;
   float: left;

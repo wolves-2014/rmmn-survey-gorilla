@@ -9,6 +9,7 @@
         <a href="/surveys/<%=survey.id%>"><%=survey.title%></a>
         <a href="/surveys/<%= survey.id%>/edit">edit</a>
         <a href="/surveys/<%= survey.id%>" id="delete-survey">delete</a>
+        <a href="/surveys/<%= survey.id%>/results" id="results">view results</a>
       <% end %>
     </article>
     <% end %>
@@ -22,5 +23,4 @@
     <% end %>
   <% end %>
 
-  <%# TODO: display the destinations and trips for each user ... %>
 </div>

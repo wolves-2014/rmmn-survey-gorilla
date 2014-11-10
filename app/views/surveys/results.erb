@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Here are your survey results:</h1>
+    <table id="results">
+      <tr>
+        <td>Question</td>
+        <td>Answer</td>
+      </tr>
+    <% @responses.each do |response| %>
+      <tr>
+        <td><%= response.question.question_body %></td>
+        <td><%= response.participant_choice %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>

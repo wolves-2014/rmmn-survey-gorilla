@@ -92,6 +92,13 @@ delete '/surveys/:survey_id' do
   params[:survey_id]
 end
 
+get '/surveys/:survey_id/results' do
+  @current_survey = current_user.surveys.find(params[:survey_id])
+  @responses = @current_survey.responses
+  @questions = @current_survey.questions
+  erb :"/surveys/results"
+end
+
 #------------- RESPONSES -----------------
 
 post '/surveys/:survey_id/questions/:question_id/responses' do
